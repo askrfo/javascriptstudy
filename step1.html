@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>step1</title>
+</head>
+<body>
+	<div>chrome에서 개발자도구 > "console" 에서 확인.</div>
+
+	<script>
+		i = 1;
+		j = ++i;
+		console.log(i);				//2
+		console.log(j);				//2
+
+		a = 1;
+		b = a++;
+		console.log(a);				//2
+		console.log(b);				//1
+
+		var v = 0;
+		console.log( (++v) + 1 );		//2 
+		console.log(v);				//1
+
+		var v = 0;
+		console.log( (v++) + 1 );		//1
+		console.log(v);				//1
+
+		console.log( 1 == "1" );			//true
+		console.log( 1 === "1" );		//true
+
+	</script>
+</body>
+</html>
