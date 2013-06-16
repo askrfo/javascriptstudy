@@ -28,6 +28,29 @@
 		console.log( 1 == "1" );			//true
 		console.log( 1 === "1" );		//false
 
+		console.log( "hello" == new Object("hello") );		//true
+		console.log( "hello" === new Object("hello") );		//false
+
+		var a1 = ["1", "2", "3"];
+		var b1 = ["1", "2", "3"];
+		console.log( a1 == b1 );				//false
+
+		var a2 = ["1", "2", "3"];
+		var b2 = [a2[0], a2[1], a2[2]];
+		console.log( a2 == b2 );				//false
+
+		console.log( ["1", "2", "3"] == ["1", "2", "3"] );	//false
+
+		console.log( NaN == NaN );			//false
+		console.log( undefined == null );			//false
+
+		var a3 = (1+2) || {};
+		console.log(a3);
+
+		console.log( null && true );
+		console.log( false && "양파링" );
+		console.log( true && "양파링" );
+		console.log( "스낵"&& "양파링" );
 	</script>
 </body>
 </html>
