@@ -1,0 +1,23 @@
+<html>
+<body>
+	<script>
+		//case 1
+		var a=1;
+		function f() {
+			if(true) {
+				var c=2;
+			}
+			return c;
+		}
+		//console.log( f() );
+
+		//case 2
+		function f2() {
+			g = "global1"; //전역 범위에 선언
+		}
+		f();
+		//console.log(g);
+		alert(g);
+	</script>
+</body>
+</html>
