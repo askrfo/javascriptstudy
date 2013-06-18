@@ -1,4 +1,7 @@
 <html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf8">
+</head>
 <body>
 	<script>
 		//case 1
@@ -7,19 +10,48 @@
 			if(true) {
 				var c=2;
 			}
-			return c;
+			return c;	//if 문 블록에 정의된 변수 c를 반환한다.
 		}
-		//console.log( f() );
+		console.log( f() );
 
 		//case 2
 		function f2() {
 			g = "global1"; //전역 범위에 선언
 		}
-		f();
-		//console.log(g);
-		//alert(g);
+		f2();
+		console.log( g );
 
 		//case 3
+		function add(x, y) {
+			var a3 = x + y;
+			return a3;
+		}
+		var r = add(1, 2, 3);
+		console.log( r );
+
+		//error
+		console.log( f() );
+		//console.log( c );	//함수의 변수 스코드에 선언된 변수는 외부에서 접근할 수없다.
+
+
+		//lexical
+		var x = "global";
+		function f3 () {
+			console.log(x);		//lexical 특성으로 전역변수 x를 보지 않고 함수내 변수 x 를 바라보게 되므로, undefined가 됨.
+			var x = "local";
+			console.log(x);
+		}
+		f3();
+
+		//lexical 
+		function ff1(){
+			var aa = 1;
+			ff2();
+		}
+		function ff2(){
+			return aa;
+		}
+		ff1();
 	</script>
 </body>
 </html>
