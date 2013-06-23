@@ -1,0 +1,84 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf8">
+</head>
+<body>
+	<a href="http://bonsaiden.github.io/JavaScript-Garden/ko/" >http://bonsaiden.github.io/JavaScript-Garden/ko/ </a>
+	<br/>
+	자바스크립트 실행해 보자.
+
+
+	javascript에서 null과 undefined를 제외한 모든 것들은 객채처럼 동작한다.
+	<br/>
+
+<script>
+	false.toString();
+	[1,2,3].toString();
+	function Foo() {};
+	Foo.bar = 1;
+	console.log(Foo.bar);
+
+	//2.toString();			//SyntaxError 
+	2..toString();
+	(2).toString();
+
+	var foo2 = {};
+	var bar = {test:12}
+
+	console.log(foo2);
+	console.log(bar);
+
+	var foo3 = {name: 'kitten'}
+	console.log( foo3.name ); 
+	console.log( foo3['name'] );
+
+	var get = 'name';
+	console.log( foo3[get] );
+
+	//console.log( 'foo3.1234' + foo3.1234 );		//SyntaxError
+	//console.log( foo3.1234 = 1234 );			//SyntaxError
+	console.log( foo3.val3);
+	console.log( foo3.val2 = 1234 );
+	console.log( foo3['1234'] );		//works
+
+</script>
+
+	프로토타입 체인<br/>
+<script>
+
+	function foo4() {
+		this.value = 42;
+	}
+
+	foo4.prototype = {
+
+		method: function() {}
+
+	}
+
+	function bar4() {}
+
+	//foo의 인스턴스를 만들어 Bar의 prototype에 할당한다.
+	bar4.prototype = new foo4();
+	bar4.prototype.foo = "Hello World";
+
+	// bar 함수를 생성자로 만들고
+	bar4.prototype.constructor = bar4;
+
+	var test = new bar4();	//bar 인스턴드를 만든다.
+
+	console.log( test );
+	console.log ( typeof(test) );
+
+</script>
+
+test [instance of Bar]
+    Bar.prototype [instance of Foo] 
+        { foo: 'Hello World' }
+        Foo.prototype
+            { method: ... }
+            Object.prototype
+                { toString: ... /* etc. */ }
+
+</body>
+</html>
