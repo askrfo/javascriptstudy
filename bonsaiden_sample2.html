@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf8">
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+	function Counter(start) {
+		var count = start;
+		return {
+			increment: function() {
+				count++;
+			},
+
+			get: function() {
+				return count;
+			}
+		}
+	}
+
+	var foo = Counter(4);
+	foo.increment();
+
+	console.log( foo.get() );
+
+	foo.hack = function(){
+		count = 1337;
+	}
+
+	console.log( foo.hack() );
+
+
+	for(var i=0; i < 10; i++) {
+		setTimeout(function() {
+			console.log(i);
+		}, 1000);
+	}
+
+	for(var j=0; j < 10; j++) {
+		(function(e) {
+			setTimeout(function() {
+				console.log(e);
+			}, 1000);
+		})(j);
+	}
+
+	console.log('이렇게도 되는군')
+	for (var k=0; k < 10; k++) {
+		setTimeout( (function(k){
+			var z = k;
+			console.log(z)
+
+		})(k), 1000);
+
+	}
+</script>
+
+</body>
+</html>
